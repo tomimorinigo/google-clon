@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'arial', sans-serif;
+    font-weight: 400;
+}
+
+body{
+    background-color: #202124;
+}
+
+.header{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.header__logo{
+    margin: 21px 40px;
+}
+
+.header__logo img{
+    width: 70px;
+}
+
+.header__search{
+    width: 500px;
+}
+
+#text-search{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    height: 33px;
+    border-radius: 25px;
+    background: #303134;
+    border: 1px solid #5f6368;
+    padding-left: 20px;
+    font-size: 11px;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+#text-search:hover{
+    box-shadow: 0 1px 6px 0 #171717;
+}
+
+#text-search:focus{
+    outline: none;
+    box-shadow: 0 1px 6px 0 #171717;
+}
+
+.line-divisor {
+    margin-bottom: 15px;
+    height: 1px;
+    background: linear-gradient(to right, rgba(190, 173, 173, 0.1), rgba(190, 173, 173, 0.3), rgba(190, 173, 173, 0.1)); /* Gradiente que crea el efecto suave */
+}
+
+#results{
+    width: 77.5%;
+    margin: auto;
+}
+
+#total-results{
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 15px;
+    font-size: 9px;
+}
+
+.result{
+    color: #fff;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    max-width: 450px;
+}
+
+.result h3{
+    margin-bottom: 4px;
+}
+
+.result h3 a{
+    font-size: 15px;
+    text-decoration: none;
+    color: #0084f8e7;
+}
+
+.result h3 a:hover{
+    text-decoration: underline;
+}
+
+.result span{
+    margin-top: 7px;
+    font-size: 11px;
+    color: #bdc1c6;
+}
+  
