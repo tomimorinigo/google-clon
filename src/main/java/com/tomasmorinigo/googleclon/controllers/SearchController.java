@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tomasmorinigo.googleclon.entities.WebPage;
 import com.tomasmorinigo.googleclon.services.SearchService;
+import com.tomasmorinigo.googleclon.services.SpiderService;
 
 import java.util.Map;
 
@@ -19,12 +20,21 @@ public class SearchController {
     @Autowired
     private SearchService searchService;
 
+    @Autowired
+    private SpiderService spiderService;
+
     @RequestMapping(value = "api/search", method = RequestMethod.GET)
     public List<WebPage> search(@RequestParam Map<String, String> params){
         // api/search?query=Download Windows&lang=es
         
         String query = params.get("query");
         return searchService.search(query);
+    }
+
+    @RequestMapping(value = "api/test", method = RequestMethod.GET)
+    public void searchTest(){
+
+        spiderService.indexWebPages();
     }
 
 }

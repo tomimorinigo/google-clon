@@ -24,5 +24,43 @@ public class SearchRepositoryImp implements SearchRepository{
             .setParameter("textSearch", "%"+textSearch+"%")
             .getResultList();
     }
-    
+
+    @Transactional
+    @Override
+    public void save(WebPage webPage) {
+        entityManager.merge(webPage);
+        System.out.println("Saved: " + webPage.getUrl());
+    }
+
+    @Transactional
+    @Override
+    public boolean exists(String link) {
+        return getByUrl(link) != null;
+    }
+
+    @Override
+    public WebPage getByUrl(String url) {
+        String query = "FROM WebPage WHERE url = :url";
+        List<WebPage> listWebs = entityManager.createQuery(query, WebPage.class)
+            .setParameter("url", url)
+            .getResultList();
+
+        return listWebs.size() == 0 ? null : listWebs.get(0);
+    }
+
+    @Override
+    public List<WebPage> getLinksToIndex() {
+        String query = "FROM WebPage WHERE title is null AND description is null";
+        return entityManager.createQuery(query, WebPage.class)
+            .setMaxResults(100)
+            .getResultList();
+    }
+
+    /*
+    @Transactional
+    @Override
+    public void delete(WebPage webPage) {
+        entityManager.remove(webPage);
+    }
+    */
 }
